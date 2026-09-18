@@ -4,36 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New Tab</title>
-
-<!-- Cute rounded font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
   font-family: "Nunito", sans-serif;
-
-  /* White + tiny polka dots */
   background-color: #fffdf8;
   background-image: radial-gradient(#d8c3a5 1.5px, transparent 1.5px);
   background-size: 22px 22px;
   color: #4b3828;
 }
-
 /* =========================
    HEADER
 ========================= */
-
 header {
   background: #fffdf8;
   color: #4b3828;
@@ -42,14 +33,12 @@ header {
   border-bottom: 5px solid #5a4030;
   box-shadow: 0 5px 0 #d8c3a5;
 }
-
 header h1 {
   margin: 0;
   font-size: 42px;
   font-weight: 800;
   letter-spacing: 1px;
 }
-
 header p {
   margin: 8px auto 0;
   max-width: 700px;
@@ -57,36 +46,28 @@ header p {
   font-weight: 600;
   color: #755b46;
 }
-
-/* Little decorative line */
-
 .header-decoration {
   margin: 15px auto 0;
   font-size: 23px;
   letter-spacing: 8px;
 }
-
 /* =========================
    GAME GRID
 ========================= */
-
 .games {
   flex: 1;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
   gap: 22px;
   padding: 35px;
-
   width: 100%;
   max-width: 1100px;
   margin: auto;
 }
-
 /* =========================
    GAME CARDS
 ========================= */
-
 .game-card {
   position: relative;
   background: #fffdf8;
@@ -94,24 +75,17 @@ header p {
   padding: 25px;
   text-align: center;
   border: 3px solid #d8c3a5;
-
   box-shadow:
     0 7px 0 #c8ae91,
     0 10px 18px rgba(75, 56, 40, .12);
-
   transition: .2s;
 }
-
 .game-card:hover {
   transform: translateY(-6px) rotate(-1deg);
-
   box-shadow:
     0 12px 0 #c8ae91,
     0 15px 22px rgba(75, 56, 40, .16);
 }
-
-/* Tayaki decoration on cards */
-
 .game-card::before {
   content: "🎐";
   display: block;
@@ -119,209 +93,151 @@ header p {
   font-size: 20px;
   margin-bottom: 6px;
 }
-
 .game-card h2 {
   margin-top: 0;
   color: #5a4030;
   font-weight: 800;
   font-size: 22px;
 }
-
 .game-card p {
   color: #806650;
   font-weight: 600;
   min-height: 45px;
 }
-
 /* =========================
    PLAY BUTTON
 ========================= */
-
 .play-button {
   background: #5a4030;
   color: #fffdf8;
-
   border: 3px solid #39271c;
   border-radius: 14px;
-
   padding: 10px 22px;
-
   font-family: "Nunito", sans-serif;
   font-weight: 800;
   font-size: 16px;
-
   cursor: pointer;
   transition: .2s;
-
   box-shadow: 0 4px 0 #2d2018;
 }
-
 .play-button:hover {
   background: #75543e;
   transform: translateY(-2px);
   box-shadow: 0 6px 0 #2d2018;
 }
-
 .play-button:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #2d2018;
 }
-
 /* =========================
    WEBSITE PLAYER
 ========================= */
-
 #player {
   display: none;
-
   position: fixed;
   inset: 0;
-
   background: #1d1713;
   z-index: 100;
 }
-
-/* Website */
-
 #gameFrame {
   width: 100%;
   height: 100%;
-
   border: none;
   display: block;
-
   background: white;
 }
-
 /* =========================
    PLAYER BUTTONS
 ========================= */
-
 .player-buttons {
   position: absolute;
-
   top: 15px;
   right: 15px;
-
   z-index: 300;
-
   display: flex;
   gap: 8px;
 }
-
 #original,
 #close {
   border: 3px solid #39271c;
   color: white;
-
   padding: 10px 16px;
   border-radius: 14px;
-
   cursor: pointer;
-
   font-family: "Nunito", sans-serif;
   font-weight: 800;
   font-size: 15px;
-
   transition: .2s;
-
   box-shadow: 0 4px 0 #2d2018;
 }
-
 #original {
   background: #8b674e;
 }
-
 #close {
   background: #5a4030;
 }
-
 #original:hover,
 #close:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
 }
-
 /* =========================
    LOADING SCREEN
 ========================= */
-
 #loading {
   display: none;
-
   position: absolute;
   inset: 0;
-
   background: #fffdf8;
   z-index: 150;
-
   align-items: center;
   justify-content: center;
-
   flex-direction: column;
-
   color: #5a4030;
-
   font-weight: 800;
   font-size: 22px;
 }
-
 .loading-teddy {
   font-size: 42px;
   margin-bottom: 10px;
 }
-
 .loading-dot {
   margin-top: 8px;
-
   font-size: 14px;
   color: #806650;
 }
-
 /* =========================
    FOOTER
 ========================= */
-
 footer {
   text-align: center;
-
   padding: 25px;
-
   color: #806650;
   font-weight: 700;
   font-size: 14px;
-
   margin-top: auto;
 }
-
 /* =========================
    MOBILE
 ========================= */
-
 @media (max-width: 600px) {
-
   header h1 {
     font-size: 32px;
   }
-
   header p {
     font-size: 14px;
   }
-
   .games {
     grid-template-columns: 1fr;
     padding: 22px;
   }
-
   .game-card {
     padding: 22px;
   }
-
   .player-buttons {
     top: 10px;
     right: 10px;
   }
-
   #original,
   #close {
     padding: 8px 11px;
@@ -330,563 +246,390 @@ footer {
 }
 </style>
 </head>
-
 <body>
-
 <!-- =========================
      HEADER
 ========================= -->
-
 <header>
-
   <h1>🧸 cozy games ^^</h1>
-
   <p>
     (please don't use this to misbehave in class
     this is for people who want to play games online)
   </p>
-
   <div class="header-decoration">
     ⋆˚࿔
   </div>
-
 </header>
-
-
 <!-- =========================
      GAMES
 ========================= -->
-
 <div class="games">
-
   <!-- EXISTING GAME 1 -->
   <div class="game-card">
     <h2>1000+ retro games</h2>
     <p>retro games</p>
-
     <button
       class="play-button"
       onclick="openGame('https://classicgamezone.com/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 2 -->
   <div class="game-card">
     <h2>chef game</h2>
     <p>make whatever you want</p>
-
     <button
       class="play-button"
       onclick="openGame('https://r74n.com/cook/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 3 -->
   <div class="game-card">
     <h2>strong dog 2</h2>
     <p>games games games</p>
-
     <button
       class="play-button"
       onclick="openGame('https://jman1593.github.io/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 4 -->
   <div class="game-card">
     <h2>kiwi</h2>
     <p>kiwi games</p>
-
     <button
       class="play-button"
       onclick="openGame('https://studysync.co.uk')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 5 -->
   <div class="game-card">
     <h2>that's not my neighbor</h2>
     <p>that aint my nieghbor bro</p>
-
     <button
       class="play-button"
       onclick="openGame('https://thatsnotmyneighbor.org/thats-not-my-neighbor')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 6 -->
   <div class="game-card">
     <h2>roblox 1</h2>
     <p>frogies acrade bypass</p>
-
     <button
       class="play-button"
       onclick="openGame('https://148.ip.nowgg.fun/apps/a/19900/b.html')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 7 -->
   <div class="game-card">
     <h2>roblox 2</h2>
     <p>frogies acrade bypass</p>
-
     <button
       class="play-button"
       onclick="openGame('https://148.ip.nowgg.lol/apps/a/19900/b.html')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 8 -->
   <div class="game-card">
     <h2>nowgg bypass</h2>
     <p>like og nowgg</p>
-
     <button
       class="play-button"
       onclick="openGame('https://now.gg/games/fun.html')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 9 -->
   <div class="game-card">
     <h2>uptonow</h2>
     <p>android emulator most games have</p>
-
     <button
       class="play-button"
       onclick="openGame('https://www.uptoplay.net/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 10 -->
   <div class="game-card">
     <h2>jack games by michuscript</h2>
     <p>jack game thx</p>
-
     <button
       class="play-button"
       onclick="openGame('https://michuscrypt.github.io/jack-games/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 11 -->
   <div class="game-card">
     <h2>poki</h2>
     <p>funn</p>
-
     <button
       class="play-button"
       onclick="openGame('https://poki.com')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 12 -->
   <div class="game-card">
     <h2>zynq games</h2>
     <p>whats the captial of france</p>
-
     <button
       class="play-button"
       onclick="openGame('https://un-zynq.github.io/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 13 -->
   <div class="game-card">
     <h2>geography lessons</h2>
     <p>oh oui oui oui it is pari merci</p>
-
     <button
       class="play-button"
       onclick="openGame('https://geography-lessons.github.io/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 14 -->
   <div class="game-card">
     <h2>fishy</h2>
     <p>fishh fish fishsyayyaysyyaysas</p>
-
     <button
       class="play-button"
       onclick="openGame('https://unpkg.com/curvethehip@1.0.15/index.html')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 15 -->
   <div class="game-card">
     <h2>docs</h2>
     <p>secret code if yk yk</p>
-
     <button
       class="play-button"
       onclick="openGame('https://watchdocumentaries.com/')">
       Play
     </button>
   </div>
-
-
   <!-- EXISTING GAME 16 -->
   <div class="game-card">
     <h2>bitlife</h2>
-
     <p>
       weiner dog weiner dog how did you get so long :)
       ੯·̀͡⬮
     </p>
-
     <button
       class="play-button"
       onclick="openGame('https://sites.google.com/view/wiener-dog-/bitlife')">
       Play
     </button>
   </div>
-
-
-  <!-- =========================
-       NEW GAME SITES
-  ========================= -->
-
-
-  <!-- NEW 17 -->
+  <!-- NEW GAME 17 -->
   <div class="game-card">
     <h2>crazygames</h2>
     <p>lots and lots of browser games</p>
-
     <button
       class="play-button"
       onclick="openGame('https://www.crazygames.com/')">
       Play
     </button>
   </div>
-
-
-  <!-- NEW 18 -->
+  <!-- NEW GAME 18 -->
   <div class="game-card">
     <h2>itch.io browser games</h2>
     <p>tiny indie games you can play in your browser</p>
-
     <button
       class="play-button"
       onclick="openGame('https://itch.io/games/free/tag-browser')">
       Play
     </button>
   </div>
-
-
-  <!-- NEW 19 -->
+  <!-- NEW GAME 19 -->
   <div class="game-card">
     <h2>faq</h2>
     <p>games and games</p>
-
     <button
       class="play-button"
       onclick="openGame('https://faqwiki.us')">
       Play
     </button>
   </div>
-
 </div>
-
-
 <!-- =========================
      FOOTER
 ========================= -->
-
 <footer>
-  ♡ made with chatgpt (˶ᵔ ᵕ ᵔ˶) ♡
+  ♡ made with chatgpt (˶ᵔ ᵕ ᔨ) ♡
 </footer>
-
-
 <!-- =========================
      FULLSCREEN WEBSITE PLAYER
 ========================= -->
-
 <div id="player">
-
-  <!-- PLAYER BUTTONS -->
-
   <div class="player-buttons">
-
     <button
       id="original"
       onclick="viewOriginal()">
       ↗ View Original Website
     </button>
-
     <button
       id="close"
       onclick="closeGame()">
       ✕ Close
     </button>
-
   </div>
-
-
   <!-- LOADING -->
-
   <div id="loading">
-
     <div class="loading-teddy">
       🧸
     </div>
-
     <div>
       loading...
     </div>
-
     <div class="loading-dot">
       just a tiny moment ♡
     </div>
-
   </div>
-
-
   <!-- WEBSITE -->
-
   <iframe
     id="gameFrame"
     allowfullscreen
     title="Game Website">
   </iframe>
-
 </div>
-
-
 <script>
-
 /* =========================
    CURRENT WEBSITE
 ========================= */
-
 let currentGameURL = "";
-
-
 /* =========================
    REDIRECT SETTINGS
 =========================
-
-   Put the EXACT URLs of games
-   you want to open directly in
-   a new tab inside this list.
-
-   Example:
-
-   const redirectGames = [
-     "https://poki.com",
-     "https://www.crazygames.com/"
-   ];
-
-   Leave it empty if you want
-   everything to use the iframe.
+   ADD THE URLs YOU WANT TO
+   REDIRECT HERE.
+   Games NOT in this list will
+   open inside the fullscreen
+   player.
 ========================= */
-
 const redirectGames = [
-     "https://poki.com",
-     "https://watchdocumentaries.com",
-     "https://www.crazygames.com/"
-   ];
-
-  // Add games here when you want them
-  // to redirect to their original website.
-
-  // "https://poki.com",
-  // "https://www.crazygames.com/"
-
+  "https://poki.com",
+  "https://watchdocumentaries.com/",
+  "https://www.crazygames.com/"
 ];
-
-
 /* =========================
-   OPEN GAME
+   NORMALIZE URL
 ========================= */
-
-function openGame(url) {
-
-  /*
-    Fix URLs that don't include
-    http:// or https://
-  */
-
+function normalizeURL(url) {
   if (
     !url.startsWith("http://") &&
     !url.startsWith("https://")
   ) {
     url = "https://" + url;
   }
-
-
   /*
-    Check if this game should
-    open directly instead.
+    Remove trailing slash so that
+    https://poki.com
+    and
+    https://poki.com/
+    are treated as the same URL.
   */
-
-  if (redirectGames.includes(url)) {
-
+  return url.replace(/\/$/, "");
+}
+/* =========================
+   OPEN GAME
+========================= */
+function openGame(url) {
+  url = normalizeURL(url);
+  /*
+    Check whether this game
+    should redirect.
+  */
+  const shouldRedirect =
+    redirectGames.some(function(redirectURL) {
+      return normalizeURL(redirectURL) === url;
+    });
+  /*
+    REDIRECT MODE
+  */
+  if (shouldRedirect) {
     window.open(
       url,
       "_blank",
       "noopener,noreferrer"
     );
-
     return;
   }
-
-
   /*
-    Otherwise use the fullscreen
-    iframe player.
+    PLAYER MODE
   */
-
   currentGameURL = url;
-
   const player =
     document.getElementById("player");
-
   const frame =
     document.getElementById("gameFrame");
-
   const loading =
     document.getElementById("loading");
-
-
-  /*
-    Show player
-  */
-
   player.style.display = "block";
-
   document.body.style.overflow = "hidden";
-
-
-  /*
-    Show loading screen
-  */
-
   loading.style.display = "flex";
-
-
-  /*
-    Clear old website
-  */
-
   frame.src = "";
-
-
   /*
-    Load new website
+    Small delay so the loading
+    screen appears before the
+    website begins loading.
   */
-
   setTimeout(function() {
-
     frame.src = currentGameURL;
-
   }, 100);
-
 }
-
-
 /* =========================
    WEBSITE FINISHED LOADING
 ========================= */
-
 document
   .getElementById("gameFrame")
   .addEventListener("load", function() {
-
     document
       .getElementById("loading")
       .style.display = "none";
-
   });
-
-
 /* =========================
    VIEW ORIGINAL WEBSITE
 ========================= */
-
 function viewOriginal() {
-
   if (currentGameURL !== "") {
-
     window.open(
       currentGameURL,
       "_blank",
       "noopener,noreferrer"
     );
-
   }
-
 }
-
-
 /* =========================
    CLOSE PLAYER
 ========================= */
-
 function closeGame() {
-
   const frame =
     document.getElementById("gameFrame");
-
   const player =
     document.getElementById("player");
-
-
   frame.src = "";
-
   player.style.display = "none";
-
   document.body.style.overflow = "";
-
   currentGameURL = "";
-
 }
-
-
 /* =========================
    ESC KEY
 ========================= */
-
 document.addEventListener(
   "keydown",
   function(event) {
-
     if (event.key === "Escape") {
       closeGame();
     }
-
   }
 );
-
 </script>
-
 </body>
 </html>
